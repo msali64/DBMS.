@@ -1,0 +1,227 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.40 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database Omega182;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| omega182           |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.03 sec)
+
+mysql> CREATE TABLE students(student_id INT(), first_name VARCHAR(20), last_name VARCHAR(20), age INT(), section VARCHAR(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '), first_name VARCHAR(20), last_name VARCHAR(20), age INT(), section VARCHAR(20)' at line 1
+mysql> CREATE TABLE students (
+    ->     student_id INT (),
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT(),
+    ->     section VARCHAR(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT(),
+    sec' at line 2
+mysql> CREATE TABLE students (
+    ->     student_id INT (),
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT(),
+    ->     section VARCHAR(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT(),
+    sec' at line 2
+mysql> CREATE TABLE students (
+    ->     student_id INT(),
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT(),
+    ->     section VARCHAR(15)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT(),
+    sec' at line 2
+mysql> CREATE TABLE students (
+    ->     student_id INT(),
+    ->     first_name VARCHAR(),
+    ->     last_name VARCHAR(),
+    ->     age INT(),
+    ->     section VARCHAR()
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),
+    first_name VARCHAR(),
+    last_name VARCHAR(),
+    age INT(),
+    section' at line 2
+mysql> CREATE TABLE students (
+    ->     student_id INT(),
+    ->     first_name VARCHAR(),
+    ->     last_name VARCHAR(),
+    ->     age INT(),
+    ->     section VARCHAR(),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),
+    first_name VARCHAR(),
+    last_name VARCHAR(),
+    age INT(),
+    section' at line 2
+mysql> CREATE TABLE students (
+    ->     student_id INT(10),
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT(10),
+    ->     section VARCHAR(15),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 7
+mysql> CREATE TABLE students (
+    ->     student_id INT,
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT,
+    ->     section VARCHAR(15),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 7
+mysql> CREATE TABLE students (
+    ->     student_id INT,
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT,
+    ->     section VARCHAR(15)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> use Omega182;
+Database changed
+mysql> CREATE TABLE students (
+    ->     student_id INT,
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     age INT,
+    ->     section VARCHAR(15)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO students (student_id, first_name, last_name, age, section)
+    -> VALUES (182, 'Unnathi Reddy', 'Dumpala', 19, 'Omega');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO students (student_id, first_name, last_name, age, section)
+    -> VALUES (721, 'Anil Varma', 'Kakkula', 18, 'Omega');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> INSERT INTO students (student_id, first_name, last_name, age, section)
+    -> VALUES (800, 'Chetana Reddy', 'Dumpala', 18, 'Delta');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM students;
++------------+---------------+-----------+------+---------+
+| student_id | first_name    | last_name | age  | section |
++------------+---------------+-----------+------+---------+
+|        182 | Unnathi Reddy | Dumpala   |   19 | Omega   |
+|        721 | Anil Varma    | Kakkula   |   18 | Omega   |
+|        800 | Chetana Reddy | Dumpala   |   18 | Delta   |
++------------+---------------+-----------+------+---------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE students ADD(email);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> ALTER TABLE students ADD email VARCHAR(100);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE students ADD dob INT;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE students DROP age INT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INT' at line 1
+mysql> ALTER TABLE students DROP COLUMN age;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE students MODIFY COLUMN student_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> ALTER TABLE students MODIFY COLUMN student_id INT;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE students RENAME section to grade VARCHAR(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to grade VARCHAR(10)' at line 1
+mysql> ALTER TABLE students RENAME COLUMN section to COLUMN grade VARCHAR(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'COLUMN grade VARCHAR(10)' at line 1
+mysql> ALTER TABLE students RENAME COLUMN section VARCHAR(15) to COLUMN grade VARCHAR(15);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR(15) to COLUMN grade VARCHAR(15)' at line 1
+mysql> ALTER TABLE students RENAME section to grade;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to grade' at line 1
+mysql> alter table students rename column section to grade;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM students;
++------------+---------------+-----------+-------+-------+------+
+| student_id | first_name    | last_name | grade | email | dob  |
++------------+---------------+-----------+-------+-------+------+
+|        182 | Unnathi Reddy | Dumpala   | Omega | NULL  | NULL |
+|        721 | Anil Varma    | Kakkula   | Omega | NULL  | NULL |
+|        800 | Chetana Reddy | Dumpala   | Delta | NULL  | NULL |
++------------+---------------+-----------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'omega182.student' doesn't exist
+mysql> desc student;
+ERROR 1146 (42S02): Table 'omega182.student' doesn't exist
+mysql> delete from students
+    -> delete from students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete from students' at line 2
+mysql> DELETE FROM students;
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> TRUNCATE TABLE students;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> DROP TABLE students;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc students;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql> desc students;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql> DESCRIBE Students;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql> SELECT * FROM students;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql> use omega182.students
+ERROR 1049 (42000): Unknown database 'omega182.students'
+mysql> SELECT * FROM students;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql> UPDATE students SET grade = 'Omega' where student_id = 800;
+ERROR 1146 (42S02): Table 'omega182.students' doesn't exist
+mysql>
